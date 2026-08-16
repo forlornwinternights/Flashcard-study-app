@@ -1,0 +1,23 @@
+# Python cache (generated automatically, never upload these)
+__pycache__/
+*.pyc
+*.pyo
+
+# Database file (we don't want to upload your personal flashcards.db)
+*.db
+
+# Virtual environments
+venv/
+.venv/
+
+# VS Code settings (personal to your machine)
+.vscode/
+
+# PyInstaller build files (if you ever package it)
+build/
+dist/
+*.spec
+
+# OS junk files
+Thumbs.db
+.DS_Store
