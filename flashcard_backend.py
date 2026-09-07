@@ -1,8 +1,8 @@
 import sqlite3
-import random  # You'll need this for shuffling later
+import random  
 
 def init_database():
-    """Create the database and flashcards table if they don't exist."""
+    
     conn = sqlite3.connect("flashcards.db")
     cursor = conn.cursor()
     cursor.execute('''
@@ -16,7 +16,7 @@ def init_database():
     conn.commit()
     conn.close()
 
-# --- CORE FUNCTIONS (Your turn to fill these out) ---
+#  CORE FUNCTIONS  
 
 def add_card(category, question, answer):
     """
@@ -26,7 +26,7 @@ def add_card(category, question, answer):
     if not category or category == "N/A":
         return "Error: Category cannot be empty or 'N/A'."
     try:
-        init_database()  # Ensure the database and table exist
+        init_database()  
         conn = sqlite3.connect("flashcards.db")
         cursor = conn.cursor()
         cursor.execute("INSERT INTO flashcards (category, question, answer) VALUES (?, ?, ?)", (category, question, answer))
@@ -43,11 +43,7 @@ def add_card(category, question, answer):
 
 
 def get_all_cards():
-    """
-    Fetch all flashcards from the database.
-    Return a LIST of DICTIONARIES.
-    Each dictionary should have keys: 'id', 'category', 'question', 'answer'.
-    """
+   
 
     init_database()
     conn = sqlite3.connect("flashcards.db")
@@ -68,11 +64,11 @@ def get_all_cards():
 
 
 def update_card(card_id, category, question, answer):
-    if not cactegory or not question or not answer:
+    if not category or not question or not answer:
         return "Error: All fields must be filled."
 
     try:
-        init_database()  # Ensure the database and table exist
+        init_database()  
         conn = sqlite3.connect("flashcards.db")
         cursor = conn.cursor()
         cursor.execute("UPDATE flashcards SET category = ?, question = ?, answer = ? WHERE id = ?", (category, question, answer, card_id))
